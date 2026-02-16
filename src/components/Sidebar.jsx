@@ -10,20 +10,24 @@ import { Add, Chat, AutoAwesome } from "@mui/icons-material";
 import { useChat } from "../ChatContext";
 
 const Sidebar = () => {
-  const { chats, selectChat, addChat, currentChatId } = useChat();
+  const { chats, selectChat, addChat, currentChatId, isSidebarOpen } =
+    useChat();
 
   return (
     <Box
       sx={{
-        width: { xs: "100%", md: "320px" },
+        width: { xs: "280px", md: "320px" },
         height: "100%",
         background: "rgba(255, 255, 255, 0.4)",
         backdropFilter: "blur(20px)",
         borderRight: "1px solid #e2e8f0",
-        display: "flex",
+        display: { xs: isSidebarOpen ? "flex" : "none", md: "flex" },
         flexDirection: "column",
-        position: "relative",
-        zIndex: 10,
+        position: { xs: "fixed", md: "relative" },
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        boxShadow: { xs: "2px 0 10px rgba(0,0,0,0.1)", md: "none" },
       }}
     >
       {/* Header with gradient */}

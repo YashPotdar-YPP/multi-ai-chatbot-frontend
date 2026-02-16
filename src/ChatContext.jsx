@@ -11,6 +11,7 @@ export const ChatProvider = ({ children }) => {
   ]);
   const [currentChatId, setCurrentChatId] = useState(1);
   const [selectedModel, setSelectedModel] = useState("gemini");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const addChat = () => {
     const newId = Date.now();
@@ -22,6 +23,11 @@ export const ChatProvider = ({ children }) => {
 
   const selectChat = (id) => {
     setCurrentChatId(id);
+    setIsSidebarOpen(false);
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
   };
 
   const addMessage = (message) => {
@@ -47,6 +53,8 @@ export const ChatProvider = ({ children }) => {
         addMessage,
         selectedModel,
         setSelectedModel,
+        isSidebarOpen,
+        toggleSidebar,
       }}
     >
       {children}

@@ -29,6 +29,7 @@ const ModelSelector = () => {
     <Box
       sx={{
         p: { xs: 2.5, md: 3 },
+        pl: { xs: 8, md: 3 },
         background: "rgba(255, 255, 255, 0.6)",
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid #e2e8f0",
